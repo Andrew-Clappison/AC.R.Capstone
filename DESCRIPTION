@@ -1,0 +1,17 @@
+Package: AC.R.Capstone
+Title: Explore Earthquake Data
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Andrew",
+           family = "Clappison",
+           role = c("aut", "cre"),
+           email = "first.last@example.com")
+Description: A package created for the purpose of completing the Mastering Software Development in R Coursera course requirements.
+License: file LICENSE
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1

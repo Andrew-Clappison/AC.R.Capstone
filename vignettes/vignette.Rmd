@@ -1,0 +1,66 @@
+---
+title: "AC.R.Capstone Vignette"
+Author: "Andrew S. Clappison"
+date: "2019-11-03"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{AC.R.Capstone Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(AC.R.Capstone)
+library(tidyverse)
+```
+
+## Information About this package
+
+This package was created for Andrew Clappison's Mastering Software Development in R Coursera Course.
+
+## Included Data
+
+Data is included with this package.
+
+National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Earthquake Database. National Geophysical Data Center, NOAA. doi:10.7289/V5TD9V7K
+
+## Example Workflow
+
+
+1. First clean the data provided in the package:
+
+```{r Clean_Data}
+clean_data <- AC.R.Capstone::eq_clean_data(AC.R.Capstone::NOAA_eq_data)
+tail(clean_data)
+```
+
+2. To create a timeline plot:
+
+```{r Plot_TimeLines, fig.width = 6, fig.height = 6}
+clean_data %>%
+  dplyr::filter(COUNTRY %in% c("CANADA", "USA")) %>%
+  dplyr::filter(DATE >= lubridate::ymd("2000-01-01")) %>%
+  dplyr::filter(DATE <= lubridate::ymd("2010-01-01")) %>%
+  ggplot2::ggplot(mapping = ggplot2::aes(x = DATE, y = COUNTRY, size = EQ_PRIMARY)) +
+  AC.R.Capstone::geom_timeline(mapping = ggplot2::aes(fill = DEATHS), 
+                             alpha = 0.25, xmin = lubridate::ymd("2000-01-01"), xmax = lubridate::ymd("2010-01-01")) +
+  AC.R.Capstone::geom_timeline_label(mapping = ggplot2::aes(label = LOCATION_NAME), n_max = 5) +
+  AC.R.Capstone::theme_timeline
+                             
+```
+
+3. To create a map plot:
+
+```{r Plot_Maps, fig.width = 6, fig.height = 6}
+clean_data %>%
+  dplyr::filter(COUNTRY == "CANADA" & DATE >= lubridate::ymd("2010-01-01")) %>%
+  dplyr::mutate(map_label = eq_create_label(.)) %>%
+  AC.R.Capstone::eq_map(annot_col = "map_label") 
+```

@@ -1,0 +1,13 @@
+This package was created by Andrew S. Clappison in 2019 with all rights reserved.
+
+It was created as part of the requirements for completing the Mastering Software Development in R course on Coursera.
+
+It has been placed on github for the purpose of having students grade the assignment.
+It may be left there for potential employers to evaluate Andrew S. Clappison as a potential job candidate.
+
+It contains data that is possibly copyrighted by:
+- The Coursea Course: Mastering Software Development in R
+- The Book: Mastering Software Development in R
+- The Website: ngdc.noaa.gov - National Centers for Environmental Information - The Significant Earthquake Database
+    National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Earthquake Database. National Geophysical Data Center, NOAA. doi:10.7289/V5TD9V7K
+- Material from other packages used by this package
