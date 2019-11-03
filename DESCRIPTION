@@ -15,4 +15,4 @@ Suggests:
     rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
-Imports: dplyr, ggplot2, grid, leaflet, lubridate, magrittr, stringr, testthat, tidyverse
+Imports: dplyr, ggplot2, grid, leaflet, lubridate, magrittr, stringr, tidyr, testthat

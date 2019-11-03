@@ -41,6 +41,7 @@ eq_location_clean <- function(db) {
 #' @importFrom lubridate ymd
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate
+#' @importFrom tidyr unite
 #'
 #' @examples
 #' \dontrun{
