@@ -21,9 +21,11 @@ library(AC.R.Capstone)
 library(magrittr)
 ```
 
-## Information About this package
+## Information About this Package
 
-This package was created for Andrew Clappison's Mastering Software Development in R Coursera Course.
+This package was created for Andrew Clappison's Mastering Software Development in R Coursera Course.  
+
+The package is used for visual analysis of the NOAA earthquake database. It includes timeline and map plotting functions.
 
 ## Included Data
 
