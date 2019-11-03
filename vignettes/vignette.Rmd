@@ -41,6 +41,13 @@ clean_data <- AC.R.Capstone::eq_clean_data(AC.R.Capstone::NOAA_eq_data)
 tail(clean_data)
 ```
 
+Note: eq_clean_data() calls the function eq_location_clean() so the following is not necessary to do, but has been written for completeness:
+
+```{r Clean_Data_2}
+example_data <- AC.R.Capstone::eq_location_clean(AC.R.Capstone::NOAA_eq_data)
+tail(example_data$LOCATION_NAME)
+```
+
 2. To create a timeline plot:
 
 ```{r Plot_TimeLines, fig.width = 6, fig.height = 6}
@@ -61,6 +68,6 @@ clean_data %>%
 ```{r Plot_Maps, fig.width = 6, fig.height = 6}
 clean_data %>%
   dplyr::filter(COUNTRY == "CANADA" & DATE >= lubridate::ymd("2010-01-01")) %>%
-  dplyr::mutate(map_label = eq_create_label(.)) %>%
+  dplyr::mutate(map_label = AC.R.Capstone::eq_create_label(.)) %>%
   AC.R.Capstone::eq_map(annot_col = "map_label") 
 ```

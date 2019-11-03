@@ -18,6 +18,7 @@
 #' tail(clean_data)
 #' }
 #'
+#' @export
 eq_location_clean <- function(db) {
   db$LOCATION_NAME <- sub("^.*:", "", db$LOCATION_NAME) %>% stringr::str_to_title()
   db
